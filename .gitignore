@@ -1,0 +1,93 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg-info/
+dist/
+build/
+eggs/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/*.log
+*.log
+
+# Output
+output/
+src/
+tests/
+docs/
+
+# Temp files
+*.tmp
+*.temp
+*.bak
+*.cache
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# PlatformIO
+.pio/
+.pioenvs/
+.piolibdeps/
+lib/
+include/
+
+# Arduino
+*.hex
+*.elf
+*.bin
+
+# Build
+build/
+dist/
+*.o
+*.obj
+*.d
+
+# Coverage
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# Test
+.pytest_cache/
+.tox/
+.nox/
+coverage/
+reports/
+
+# Documentation
+site/
+_build/
+*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Project specific
+output/roadmap.json
+*.json.bak

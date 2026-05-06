@@ -1,0 +1,106 @@
+# 嵌入式竞赛多 Agent 协作系统配置
+system:
+  name: "Embedded-Agent-Sys"
+  version: "1.0.0"
+  description: "面向嵌入式竞赛的全链路智能开发与验证 Agent 系统"
+
+# Claude API 配置
+claude:
+  model: "claude-sonnet-4-20250514"
+  max_tokens: 4096
+  temperature: 0.3
+  use_cache: true
+
+# Agent 配置
+agents:
+  requirement:
+    name: "需求拆解 Agent"
+    description: "接收项目目标，拆解为结构化开发路线图"
+    max_iterations: 5
+    output_format: "json"
+
+  develop:
+    name: "开发与调试 Agent"
+    description: "生成代码，串口日志分析，迭代优化"
+    max_iterations: 10
+    serial_timeout: 30
+    code_languages: ["c", "cpp", "arduino"]
+
+  verify:
+    name: "验证与文档 Agent"
+    description: "单元测试，功能验证，文档生成"
+    test_framework: "unity"
+    doc_format: ["markdown", "pdf"]
+
+# 硬件平台配置
+platforms:
+  esp32:
+    name: "ESP32"
+    vendor: "Espressif"
+    flash_size: "4MB"
+    sdk: "ESP-IDF / Arduino"
+    serial_baud: 115200
+    common_sensors:
+      - "DHT22"
+      - "BME280"
+      - "BH1750"
+      - "MQ-135"
+
+  stm32:
+    name: "STM32"
+    vendor: "STMicroelectronics"
+    families: ["F1", "F4", "H7"]
+    sdk: "HAL / LL / Arduino"
+    serial_baud: 115200
+
+  arduino:
+    name: "Arduino"
+    boards: ["Uno", "Mega", "Nano"]
+    sdk: "Arduino IDE"
+    serial_baud: 9600
+
+# 串口监控配置
+serial:
+  default_baud: 115200
+  timeout: 10
+  log_level: "INFO"
+  auto_reconnect: true
+  buffer_size: 1024
+
+# 代码生成配置
+code_gen:
+  style: "google"
+  comments: true
+  error_handling: true
+  watchdog: true
+  low_power: false
+
+# 测试配置
+testing:
+  framework: "unity"
+  coverage_target: 80
+  auto_generate: true
+  mock_hardware: true
+
+# 文档生成配置
+docs:
+  format: "markdown"
+  include_wiring: true
+  include_demo: true
+  language: "zh-CN"
+
+# 日志配置
+logging:
+  level: "INFO"
+  file: "logs/agent-system.log"
+  max_size: "10MB"
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# 输出配置
+output:
+  dir: "./output"
+  roadmap: "roadmap.json"
+  code_dir: "src"
+  test_dir: "tests"
+  doc_dir: "docs"
